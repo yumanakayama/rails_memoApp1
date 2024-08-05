@@ -1,0 +1,21 @@
+<div class="container">
+
+  <!-- 検索ボックス -->
+  <div class="search-wrap">
+    <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |search| %>
+      <%= search.text_field :word, placeholder: "検索内容", class: "search-box" %>
+      <%= search.submit "検索", class: "search-btn" %>
+    <% end %>
+    <%= link_to "検索をリセット", memos_path, method: :get, class: "search-reset" %>
+  </div>
+
+  <%= render "layouts/memo/error", obj: @memo_new %> <!-- viewsをトップとしてパスを指定する。 -->
+
+  <%= render "layouts/memo/post_form", memo_new: @memo_new %>
+
+  <div class="lists-area">
+    <h2 class="center">メモ一覧</h2>
+    <%= render "layouts/memo/lists", memos: @memos %>
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+<h2 class="center">ユーザー情報</h2>
+
+<div class="container">
+  <p>Name</p>
+  <div class="form-box">
+    <%= @user.name %>
+  </div>
+  
+  <p>Email</p>
+  <div class="form-box">
+    <%= @user.email %>
+  </div>
+
+  <%= link_to "編集する", myInfo_edit_path %>
+</div>

@@ -1,0 +1,72 @@
+@import 'variables';
+.header {
+  background-color: $primary-color;
+
+  .container {
+    display: flex;
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      width: 50%;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      @include media-sp {
+        width: 100%;
+      }
+    }
+  
+    .sessions-box {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 50%;
+      color: white;
+
+      @include media-sp {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      button ,a{
+        outline: none;
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        
+        @include media-pc {
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .logged-out-box {
+        .login-btn {
+          margin-right: 10px;
+        }
+
+        .logout-btn {
+
+        }
+      }
+
+      .logged-in-box {
+        text-align: right;
+
+        @include media-sp {
+          text-align: left;
+        }
+      }
+    }
+
+    @include media-sp {
+      display: block;
+    }
+  }
+}

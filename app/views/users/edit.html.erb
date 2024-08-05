@@ -1,0 +1,14 @@
+<h2 class="center">ユーザー編集</h2>
+
+<div class="container">
+  <%= form_with model:@user, url: myInfo_update_path, local: true, class: "session-form", method: :patch do |f|%><!-- methodをpatchにしてアップデートだとわかるようにする。 -->
+  
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "form-box" %>
+
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: "form-box" %>
+  
+    <%= f.submit "編集を反映する", class: "sessionBtn"%>
+  <% end %>
+</div>

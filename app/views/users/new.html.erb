@@ -1,0 +1,16 @@
+<h2 class="center">ユーザー新規登録</h2>
+
+<div class="container">
+  <%= form_with model: @user_new, url: registerCreate_path, local: true, class: "session-form", method: :post do |f|%>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "form-box" %>
+
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: "form-box" %>
+  
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, class: "form-box" %>
+  
+    <%= f.submit "新規登録", class: "sessionBtn"%>
+  <% end %>
+</div>

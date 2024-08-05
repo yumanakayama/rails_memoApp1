@@ -1,0 +1,13 @@
+<h2 class="center">ユーザーログイン</h2>
+
+<div class="container">
+  <%= form_with url: create_path, local: true, class: "session-form", method: :post do |f|%>
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: "form-box" %>
+  
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, class: "form-box" %>
+  
+    <%= f.submit "ログイン", class: "sessionBtn"%>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<div class="memo-lists">
+  <% memos.reverse.each do |memo| %>
+    <div class="memo-item">
+      <%= render "layouts/memo/post_list", memo: memo %>
+    </div>
+  <% end %>
+</div>

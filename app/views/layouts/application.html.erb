@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MemoApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="header-logo"><%= link_to "MemoApp", root_path%></h1>
+    
+        <!-- 認証メニュー -->
+        <div class="sessions-box">
+          <% if session[:user_id].nil? %>
+          <div class="logged-out-box">
+            <%= link_to "ログイン", login_path, method: :get, class: "login-btn" %>
+            <%= link_to "新規登録", register_path, method: :get, class: "register-btn" %>          
+          </div>
+          <% else %>
+          <div class="logged-in-box">
+            <% if @user %>
+              <p>こんにちは、<%= @user.name || 'ゲスト' %>さん</p>
+            <% end %>
+            <%= link_to "登録情報を編集", myInfo_edit_path, method: :delete, class: "edit-btn" %>
+            <%= button_to "ログアウト", logout_path, method: :delete, class: "logout-btn" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="notice_area">
+        <%= render "layouts/memo/notice" %><!-- フラッシュメッセージ -->
+      </div>
+      <%= yield %>
+    </main>
+  </body>
+</html>
